@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CameraScript : MonoBehaviour {
 	Rigidbody RB;
-	bool SeePlayer;
+	bool rayCastSaw;
 	public LayerMask RaycastMask;
 	public float RayDistance = 15f;
 	public Vector3 Direction = new Vector3 (-1, 0, 0);
@@ -27,19 +27,26 @@ public class CameraScript : MonoBehaviour {
 		Timer = Timer + Time.deltaTime;
 		Ray ray = new Ray(transform.position, transform.forward);
 		Debug.DrawRay(ray.origin, Direction * 9f, Color.yellow);
-		Debug.Log (TextTimer);
-		SeePlayer = Physics.Raycast (transform.position, Direction, RayDistance, RaycastMask);
-		if (SeePlayer == true && HitWall == false) {
+//		Debug.Log (TextTimer);
+		RaycastHit rayHit = new RaycastHit(); // this is just a blank variable right now
+		rayCastSaw = Physics.Raycast (transform.position, Direction, out rayHit, RayDistance, RaycastMask);
+		Debug.Log (rayCastSaw);
+		if (rayCastSaw == true) {
+			Debug.Log (name);
+		}
+		if (rayCastSaw == true && rayHit.collider.gameObject.tag == "Player") {
+			MotherMovement.SeePlayer = true;
+//			GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezeAll;
 			TextTimer += Time.deltaTime;
-			Debug.Log ("Camera1 see's the player");
 			PlayerText.text = "What are you doing up? BACK TO BED!";
 			Player.GetComponent<CharacterController> ().enabled = false;
 		}
 		if(TextTimer > 5f){
-			Debug.Log ("transport");
+			TextTimer = 0f;
+			rayCastSaw = false;
 			Player.transform.position = RestartPosition;
-			PlayerText.text = "";
 			Player.GetComponent<CharacterController> ().enabled = true;
+			PlayerText.text = "";
 	}
 }
 }

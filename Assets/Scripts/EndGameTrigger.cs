@@ -12,6 +12,9 @@ public class EndGameTrigger : MonoBehaviour {
 	
 	// Update is called once per frame
 	void OnTriggerEnter(Collider other){
-		PlayerText.text = "Congratulations! You have snuck out of the house!";
+		if (other.gameObject.tag == "Player") {
+			Debug.Log ("End Game");
+			PlayerText.text = "Congratulations! You have snuck out of the house!";
+		}
 	}
 }

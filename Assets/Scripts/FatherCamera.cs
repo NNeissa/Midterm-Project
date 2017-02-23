@@ -38,17 +38,16 @@ public class FatherCamera : MonoBehaviour {
 		if (Timer > TimeTurnOff + 3f) {
 			Timer = Timer - 6f;
 		}
-		if (SeePlayer == true) {
+		if(TextTimer >= 5f){
+			SeePlayer = false;
+			TextTimer = 0f;
+			Player.transform.position = RestartPosition;
+			Player.GetComponent<CharacterController> ().enabled = true;
+			PlayerText.text = "";
+		} else if(SeePlayer == true) {
 			TextTimer += Time.deltaTime;
 			PlayerText.text = "What are you doing up? BACK TO BED!";
 			Player.GetComponent<CharacterController> ().enabled = false;
-		}
-		if(TextTimer >= 5f){
-			Debug.Log ("Change");
-			Player.transform.position = RestartPosition;
-			Player.GetComponent<CharacterController> ().enabled = true;
-			TextTimer = 0f;
-			PlayerText.text = "";
 		}
 	}
 }

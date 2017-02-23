@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MotherTrigger : MonoBehaviour {
-
+	public static bool GravOn = false;
 	// Use this for initialization
 	void Start () {
 		
@@ -11,9 +11,14 @@ public class MotherTrigger : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (GravOn) {
+			GetComponentInParent<Rigidbody> ().useGravity = true;
+		} else {
+			GetComponentInParent<Rigidbody> ().useGravity = false;
+			GravOn = false;
+		}
 	}
 	void OnTriggerEnter(Collider other){
-		GetComponentInParent<Rigidbody> ().useGravity = true;
+		GravOn = false;
 	}
 }
