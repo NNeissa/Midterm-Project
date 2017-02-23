@@ -15,6 +15,7 @@ public class CameraScript : MonoBehaviour {
 	Vector3 RestartPosition;
 	float Timer = 0f;
 	float TimeTurnOff = 3f;
+	bool HitWall = false;
 	// Use this for initialization
 	void Start () {
 		RB = GetComponent<Rigidbody> ();
@@ -25,16 +26,17 @@ public class CameraScript : MonoBehaviour {
 	void Update () {
 		Timer = Timer + Time.deltaTime;
 		Ray ray = new Ray(transform.position, transform.forward);
-		Debug.DrawRay(ray.origin, Direction * 10f, Color.yellow);
+		Debug.DrawRay(ray.origin, Direction * 9f, Color.yellow);
 		Debug.Log (TextTimer);
 		SeePlayer = Physics.Raycast (transform.position, Direction, RayDistance, RaycastMask);
-		if (SeePlayer == true) {
+		if (SeePlayer == true && HitWall == false) {
 			TextTimer += Time.deltaTime;
 			Debug.Log ("Camera1 see's the player");
 			PlayerText.text = "What are you doing up? BACK TO BED!";
 			Player.GetComponent<CharacterController> ().enabled = false;
 		}
 		if(TextTimer > 5f){
+			Debug.Log ("transport");
 			Player.transform.position = RestartPosition;
 			PlayerText.text = "";
 			Player.GetComponent<CharacterController> ().enabled = true;

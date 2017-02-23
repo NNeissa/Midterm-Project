@@ -27,6 +27,7 @@ public class FatherCamera : MonoBehaviour {
 		Timer = Timer + Time.deltaTime;
 		Ray ray = new Ray(transform.position, transform.forward);
 		Debug.DrawRay(ray.origin, Direction * 10f, Color.yellow);
+		Debug.Log (TextTimer);
 		if (Timer > TimeTurnOff) {
 			GetComponentInChildren<Light> ().intensity = 8f;
 			SeePlayer = Physics.Raycast (transform.position, Direction, RayDistance, RaycastMask);
@@ -37,20 +38,17 @@ public class FatherCamera : MonoBehaviour {
 		if (Timer > TimeTurnOff + 3f) {
 			Timer = Timer - 6f;
 		}
-		if (SeePlayer == true && TextTimer < 5f) {
-			Debug.Log ("Freeze");
+		if (SeePlayer == true) {
 			TextTimer += Time.deltaTime;
 			PlayerText.text = "What are you doing up? BACK TO BED!";
 			Player.GetComponent<CharacterController> ().enabled = false;
-			Caught = true;
 		}
-		if(TextTimer >= 5f && Caught == true){
+		if(TextTimer >= 5f){
 			Debug.Log ("Change");
-			Caught = false;
 			Player.transform.position = RestartPosition;
+			Player.GetComponent<CharacterController> ().enabled = true;
 			TextTimer = 0f;
 			PlayerText.text = "";
-			Player.GetComponent<CharacterController> ().enabled = true;
 		}
 	}
 }
