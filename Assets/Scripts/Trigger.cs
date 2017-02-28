@@ -5,6 +5,8 @@ using UnityEngine;
 public class Trigger : MonoBehaviour {
 	bool DoorOpened = false;
 	public AudioSource OpenDoor;
+	float Timer = 0f;
+
 
 	void OnTriggerEnter(Collider other){
 		if (other.gameObject.tag == "Key") {

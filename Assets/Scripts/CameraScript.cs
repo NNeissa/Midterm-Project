@@ -16,6 +16,7 @@ public class CameraScript : MonoBehaviour {
 	float Timer = 0f;
 	float TimeTurnOff = 3f;
 	bool HitWall = false;
+	bool SeePlayer = false;
 	// Use this for initialization
 	void Start () {
 		RB = GetComponent<Rigidbody> ();
@@ -30,18 +31,27 @@ public class CameraScript : MonoBehaviour {
 //		Debug.Log (TextTimer);
 		RaycastHit rayHit = new RaycastHit(); // this is just a blank variable right now
 		rayCastSaw = Physics.Raycast (transform.position, Direction, out rayHit, RayDistance, RaycastMask);
-		Debug.Log (rayCastSaw);
 		if (rayCastSaw == true) {
 			Debug.Log (name);
+			Debug.Log (rayHit.collider.gameObject.name);
 		}
 		if (rayCastSaw == true && rayHit.collider.gameObject.tag == "Player") {
+			SeePlayer = true;
 			MotherMovement.SeePlayer = true;
 //			GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezeAll;
 			TextTimer += Time.deltaTime;
 			PlayerText.text = "What are you doing up? BACK TO BED!";
 			Player.GetComponent<CharacterController> ().enabled = false;
 		}
+		if(SeePlayer){
+			GrandFatherPatrol.PatrolDirection = 0f;
+			TextTimer += Time.deltaTime;
+			PlayerText.text = "What are you doing up? BACK TO BED!";
+			Player.GetComponent<CharacterController> ().enabled = false;
+		}
 		if(TextTimer > 5f){
+			SeePlayer = false;
+			GrandFatherPatrol.PatrolDirection = 1f;
 			TextTimer = 0f;
 			rayCastSaw = false;
 			Player.transform.position = RestartPosition;

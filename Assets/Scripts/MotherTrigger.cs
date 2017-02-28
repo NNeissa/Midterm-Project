@@ -19,6 +19,6 @@ public class MotherTrigger : MonoBehaviour {
 		}
 	}
 	void OnTriggerEnter(Collider other){
-		GravOn = false;
+		GravOn = true;
 	}
 }

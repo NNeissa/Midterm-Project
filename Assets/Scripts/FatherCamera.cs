@@ -27,7 +27,6 @@ public class FatherCamera : MonoBehaviour {
 		Timer = Timer + Time.deltaTime;
 		Ray ray = new Ray(transform.position, transform.forward);
 		Debug.DrawRay(ray.origin, Direction * 10f, Color.yellow);
-		Debug.Log (TextTimer);
 		if (Timer > TimeTurnOff) {
 			GetComponentInChildren<Light> ().intensity = 8f;
 			SeePlayer = Physics.Raycast (transform.position, Direction, RayDistance, RaycastMask);

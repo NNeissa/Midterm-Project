@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GrandFatherPatrol : MonoBehaviour {
 	Vector3 Patrol;
-	float PatrolDirection = 1f;
+	public static float PatrolDirection = 1f;
 	// Use this for initialization
 	void Start () {
 	}
