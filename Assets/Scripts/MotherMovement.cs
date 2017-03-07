@@ -14,7 +14,7 @@ public class MotherMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (transform.position.y < 2f && SeePlayer == false) {
+		if (transform.position.y < 3.2f && SeePlayer == false) {
 			transform.position += Move * Time.deltaTime;
 		} else {
 			transform.position += new Vector3 (0, 0, 0);

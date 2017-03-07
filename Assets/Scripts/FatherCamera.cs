@@ -5,10 +5,14 @@ using UnityEngine.UI;
 
 public class FatherCamera : MonoBehaviour {
 	Rigidbody RB;
-	bool SeePlayer;
+	bool SeePlayer1;
+	bool SeePlayer2;
+	bool SeePlayer3;
 	public LayerMask RaycastMask;
 	public float RayDistance = 15f;
-	public Vector3 Direction = new Vector3 (-1, 0, 0);
+	public Vector3 Direction1 = new Vector3 (-1, 0, 0);
+	public Vector3 Direction2 = new Vector3 (-1f, 0, 1f);
+	public Vector3 Direction3 = new Vector3 (-1f, 0, -1f);
 	public GameObject Player;
 	public Text PlayerText;
 	float TextTimer = 0f;
@@ -26,10 +30,12 @@ public class FatherCamera : MonoBehaviour {
 	void Update () {
 		Timer = Timer + Time.deltaTime;
 		Ray ray = new Ray(transform.position, transform.forward);
-		Debug.DrawRay(ray.origin, Direction * 10f, Color.yellow);
+		Debug.DrawRay(ray.origin, Direction2 * 10f, Color.yellow);
 		if (Timer > TimeTurnOff) {
 			GetComponentInChildren<Light> ().intensity = 8f;
-			SeePlayer = Physics.Raycast (transform.position, Direction, RayDistance, RaycastMask);
+			SeePlayer1 = Physics.Raycast (transform.position, Direction1, RayDistance, RaycastMask);
+			SeePlayer2 = Physics.Raycast (transform.position, Direction2, RayDistance, RaycastMask);
+			SeePlayer3 = Physics.Raycast (transform.position, Direction3, RayDistance, RaycastMask);
 		}
 		if(Timer < TimeTurnOff){
 			GetComponentInChildren<Light> ().intensity = 0f;
@@ -38,14 +44,18 @@ public class FatherCamera : MonoBehaviour {
 			Timer = Timer - 6f;
 		}
 		if(TextTimer >= 5f){
-			SeePlayer = false;
+			SeePlayer1 = false;
+			SeePlayer2 = false;
+			SeePlayer3 = false;
 			TextTimer = 0f;
 			Player.transform.position = RestartPosition;
 			Player.GetComponent<CharacterController> ().enabled = true;
-			PlayerText.text = "";
-		} else if(SeePlayer == true) {
+			TextScript.Caught = false;
+//			PlayerText.text = "";
+		} else if(SeePlayer1 == true || SeePlayer2 == true || SeePlayer3 == true) {
 			TextTimer += Time.deltaTime;
-			PlayerText.text = "What are you doing up? BACK TO BED!";
+			TextScript.Caught = true;
+//			PlayerText.text = "What are you doing up? BACK TO BED!";
 			Player.GetComponent<CharacterController> ().enabled = false;
 		}
 	}

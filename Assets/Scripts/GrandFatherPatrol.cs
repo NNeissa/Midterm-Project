@@ -11,7 +11,7 @@ public class GrandFatherPatrol : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Patrol = new Vector3 (0f, 0f, 10f) * Time.deltaTime * PatrolDirection;
+		Patrol = new Vector3 (0f, 0f, 20f) * Time.deltaTime * PatrolDirection;
 		transform.position += Patrol;
 		if (transform.position.z >= 92f) {
 			PatrolDirection = -1f;

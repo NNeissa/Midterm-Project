@@ -6,6 +6,10 @@ using UnityEngine.UI;
 public class EndGameTrigger : MonoBehaviour {
 	public Text PlayerText;
 	bool EndGame = false;
+	public GameObject FinalDoor;
+
+	void Start(){
+	}
 	// Use this for initialization
 	void Update(){
 		if (EndGame == true) {
@@ -17,7 +21,7 @@ public class EndGameTrigger : MonoBehaviour {
 	void OnTriggerEnter(Collider other){
 		if (other.gameObject.tag == "Player") {
 			EndGame = true;
-			Debug.Log ("End Game");
+			FinalDoor.transform.Rotate (new Vector3 (0, 90, 0));
 		}
 	}
 }

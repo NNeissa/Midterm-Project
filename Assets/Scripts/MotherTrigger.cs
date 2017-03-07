@@ -19,6 +19,7 @@ public class MotherTrigger : MonoBehaviour {
 		}
 	}
 	void OnTriggerEnter(Collider other){
+		Debug.Log (other.name);
 		GravOn = true;
 	}
 }
