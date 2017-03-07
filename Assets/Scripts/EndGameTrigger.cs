@@ -5,16 +5,16 @@ using UnityEngine.UI;
 
 public class EndGameTrigger : MonoBehaviour {
 	public Text PlayerText;
-	bool EndGame = false;
+	public static bool EndGame = false;
 	public GameObject FinalDoor;
 
 	void Start(){
 	}
 	// Use this for initialization
 	void Update(){
-		if (EndGame == true) {
-			PlayerText.text = "Congratulations! You have snuck out of the house!";
-		}
+//		if (EndGame == true) {
+//			PlayerText.text = "Congratulations! You have snuck out of the house!";
+//		}
 	}
 	
 	// Update is called once per frame

@@ -29,9 +29,10 @@ public class TextScript : MonoBehaviour {
 			PlayerText.text = "What are you doing up? BACK TO BED!";
 		}
 		if (!Caught) {
-//			PlayerText.text = "";
 			if (Texttimer < 5.0f) {
 				PlayerText.text = "Sneak out of the house...find the key to the last door...but don't get caught in the light";
+			} else if (EndGameTrigger.EndGame == true) {
+				PlayerText.text = "Congratulations! You have snuck out of the house!";
 			} else {
 				PlayerText.text = "";
 			}

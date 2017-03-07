@@ -10,12 +10,6 @@ public class KeyScript : MonoBehaviour {
 		
 	}
 	
-	// Update is called once per frame
-//	void OnTriggerEnter(Collider other){
-//		if (other.name == "FinalDoor") {
-//			other.transform.Rotate (new Vector3 (0f, -90f, 0f));
-//			OpenDoor.Play ();
-//			Destroy (this.gameObject);
-//		}
-//	}
+	void Update(){
+	}
 }

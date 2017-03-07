@@ -11,7 +11,7 @@ public class DogMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (transform.position.y < 2.2f) {
+		if (transform.position.y < 3.2f) {
 			transform.position += new Vector3 (-5f, 0f, 0f) * Time.deltaTime;
 		}
 	}
