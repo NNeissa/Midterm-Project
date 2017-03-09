@@ -17,6 +17,7 @@ public class CameraScript : MonoBehaviour {
 	float TimeTurnOff = 3f;
 	bool HitWall = false;
 	bool SeePlayer = false;
+	public AudioSource TeleportSound;
 	// Use this for initialization
 	void Start () {
 		RB = GetComponent<Rigidbody> ();
@@ -40,6 +41,7 @@ public class CameraScript : MonoBehaviour {
 			Player.GetComponent<CharacterController> ().enabled = false;
 		}
 		if(SeePlayer){
+			TeleportSound.PlayDelayed (1.0f);
 			GrandFatherPatrol.PatrolDirection = 0f;
 			TextTimer += Time.deltaTime;
 			TextScript.Caught = true;

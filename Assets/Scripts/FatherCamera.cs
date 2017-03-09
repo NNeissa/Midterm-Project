@@ -20,6 +20,8 @@ public class FatherCamera : MonoBehaviour {
 	float Timer = 0f;
 	float TimeTurnOff = 3f;
 	bool Caught = false;
+	public AudioSource TeleportSound;
+
 	// Use this for initialization
 	void Start () {
 		RB = GetComponent<Rigidbody> ();
@@ -34,8 +36,6 @@ public class FatherCamera : MonoBehaviour {
 		if (Timer > TimeTurnOff) {
 			GetComponentInChildren<Light> ().intensity = 8f;
 			SeePlayer1 = Physics.Raycast (transform.position, Direction1, RayDistance, RaycastMask);
-			SeePlayer2 = Physics.Raycast (transform.position, Direction2, RayDistance, RaycastMask);
-			SeePlayer3 = Physics.Raycast (transform.position, Direction3, RayDistance, RaycastMask);
 		}
 		if(Timer < TimeTurnOff){
 			GetComponentInChildren<Light> ().intensity = 0f;
@@ -45,14 +45,13 @@ public class FatherCamera : MonoBehaviour {
 		}
 		if(TextTimer >= 5f){
 			SeePlayer1 = false;
-			SeePlayer2 = false;
-			SeePlayer3 = false;
 			TextTimer = 0f;
 			Player.transform.position = RestartPosition;
 			Player.GetComponent<CharacterController> ().enabled = true;
 			TextScript.Caught = false;
 //			PlayerText.text = "";
-		} else if(SeePlayer1 == true || SeePlayer2 == true || SeePlayer3 == true) {
+		} else if(SeePlayer1 == true) {
+			TeleportSound.Play();
 			TextTimer += Time.deltaTime;
 			TextScript.Caught = true;
 //			PlayerText.text = "What are you doing up? BACK TO BED!";

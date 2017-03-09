@@ -1,6 +1,6 @@
 //Maya ASCII 2017 scene
 //Name: Guard_Dog.ma
-//Last modified: Tue, Mar 07, 2017 03:52:05 PM
+//Last modified: Tue, Mar 07, 2017 06:15:17 PM
 //Codeset: 1252
 requires maya "2017";
 currentUnit -l centimeter -a degree -t film;
@@ -13,8 +13,8 @@ fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "742AC819-40AB-7843-81C9-56930048ECEA";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -4.2765640252177848 -2.3007977933737696 -15.808035576662833 ;
-	setAttr ".r" -type "double3" 31.46164727039422 -162.99999999987008 0 ;
+	setAttr ".t" -type "double3" -10.272122225801146 7.7293722343797793 -15.637622632728483 ;
+	setAttr ".r" -type "double3" -2.7383527296042116 -143.79999999985719 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "7772426D-48A1-D11A-897F-6D8DE3BEBC50";
 	setAttr -k off ".v" no;

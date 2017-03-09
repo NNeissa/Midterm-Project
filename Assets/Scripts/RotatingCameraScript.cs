@@ -18,6 +18,7 @@ public class RotatingCameraScript : MonoBehaviour {
 	bool HitWall = false;
 	bool SeePlayer = false;
 	float RotateSpeed = 10f;
+	public AudioSource TeleportSound;
 	// Use this for initialization
 	void Start () {
 		RB = GetComponent<Rigidbody> ();
@@ -34,18 +35,13 @@ public class RotatingCameraScript : MonoBehaviour {
 		rayCastSaw = Physics.Raycast (transform.position, transform.forward, out rayHit, RayDistance, RaycastMask);
 
 		if (rayCastSaw == true && rayHit.collider.gameObject.tag == "Player") {
+			TeleportSound.PlayDelayed (3.5f);
 			SeePlayer = true;
-			MotherMovement.SeePlayer = true;
-			TextTimer += Time.deltaTime;
-			TextScript.Caught = true;
-//			PlayerText.text = "What are you doing up? BACK TO BED!";
-			Player.GetComponent<CharacterController> ().enabled = false;
 		}
 		if(SeePlayer){
 			RotateSpeed = 0f;
 			TextTimer += Time.deltaTime;
 			TextScript.Caught = true;
-//			PlayerText.text = "What are you doing up? BACK TO BED!";
 			Player.GetComponent<CharacterController> ().enabled = false;
 		}
 		if(TextTimer > 5f){

@@ -7,14 +7,13 @@ public class EndGameTrigger : MonoBehaviour {
 	public Text PlayerText;
 	public static bool EndGame = false;
 	public GameObject FinalDoor;
+	public GameObject Player;
 
 	void Start(){
 	}
 	// Use this for initialization
 	void Update(){
-//		if (EndGame == true) {
-//			PlayerText.text = "Congratulations! You have snuck out of the house!";
-//		}
+
 	}
 	
 	// Update is called once per frame
@@ -22,6 +21,8 @@ public class EndGameTrigger : MonoBehaviour {
 		if (other.gameObject.tag == "Player") {
 			EndGame = true;
 			FinalDoor.transform.Rotate (new Vector3 (0, 90, 0));
+			Player.GetComponent<CharacterController> ().enabled = false;
+			GetComponent<BoxCollider> ().enabled = false;
 		}
 	}
 }
