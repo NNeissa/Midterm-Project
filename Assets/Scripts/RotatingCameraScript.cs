@@ -35,7 +35,7 @@ public class RotatingCameraScript : MonoBehaviour {
 		rayCastSaw = Physics.Raycast (transform.position, transform.forward, out rayHit, RayDistance, RaycastMask);
 
 		if (rayCastSaw == true && rayHit.collider.gameObject.tag == "Player") {
-			TeleportSound.PlayDelayed (3.5f);
+			TeleportSound.Play();
 			SeePlayer = true;
 		}
 		if(SeePlayer){

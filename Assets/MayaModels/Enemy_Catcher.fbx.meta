@@ -31,6 +31,8 @@ ModelImporter:
     100046: transform7
     100048: transform8
     100050: transform9
+    100052: pasted__pSphere6
+    100054: pSphere6
     400000: //RootNode
     400002: pCone1
     400004: pCone2
@@ -57,12 +59,20 @@ ModelImporter:
     400046: transform7
     400048: transform8
     400050: transform9
+    400052: pasted__pSphere6
+    400054: pSphere6
     2300000: pCone2
     2300002: pSphere5
+    2300004: pasted__pSphere6
+    2300006: pSphere6
     3300000: pCone2
     3300002: pSphere5
+    3300004: pasted__pSphere6
+    3300006: pSphere6
     4300000: pCone2
     4300002: pSphere5
+    4300004: pSphere6
+    4300006: pasted__pSphere6
     9500000: //RootNode
   materials:
     importMaterials: 1

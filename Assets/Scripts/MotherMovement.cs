@@ -25,6 +25,11 @@ public class MotherMovement : MonoBehaviour {
 			transform.position = StartPosition;
 			Timer = 0f;
 		}
+		if (transform.position.z < 40.2f) {
+			transform.position = StartPosition;
+			MotherTrigger.GravOn = false;
+			Timer = 0f;
+		}
 
 
 	}

@@ -1,80 +1,15 @@
 fileFormatVersion: 2
-guid: 5bc167c3b6409d7459c6db53f4a237ea
-timeCreated: 1488489778
+guid: a430baa4197bd3449a0ae6e95737c7b6
+timeCreated: 1489090894
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
-    100002: pCone1
-    100004: pCone2
-    100006: pCube1
-    100008: pSphere1
-    100010: pSphere2
-    100012: transform1
-    100014: transform2
-    100016: transform3
-    100018: transform4
-    100020: group
-    100022: group1
-    100024: pasted__group
-    100026: pasted__pasted__pCube2
-    100028: pCone3
-    100030: pCube2
-    100032: pCylinder1
-    100034: pSphere3
-    100036: pSphere4
-    100038: pSphere5
-    100040: transform10
-    100042: transform11
-    100044: transform5
-    100046: transform6
-    100048: transform7
-    100050: transform8
-    100052: transform9
-    100054: pasted__pSphere6
-    100056: pSphere6
     400000: //RootNode
-    400002: pCone1
-    400004: pCone2
-    400006: pCube1
-    400008: pSphere1
-    400010: pSphere2
-    400012: transform1
-    400014: transform2
-    400016: transform3
-    400018: transform4
-    400020: group
-    400022: group1
-    400024: pasted__group
-    400026: pasted__pasted__pCube2
-    400028: pCone3
-    400030: pCube2
-    400032: pCylinder1
-    400034: pSphere3
-    400036: pSphere4
-    400038: pSphere5
-    400040: transform10
-    400042: transform11
-    400044: transform5
-    400046: transform6
-    400048: transform7
-    400050: transform8
-    400052: transform9
-    400054: pasted__pSphere6
-    400056: pSphere6
-    2300000: pCone2
-    2300002: pSphere5
-    2300004: pasted__pSphere6
-    2300006: pSphere6
-    3300000: pCone2
-    3300002: pSphere5
-    3300004: pasted__pSphere6
-    3300006: pSphere6
-    4300000: pCone2
-    4300002: pSphere5
-    4300004: pSphere6
-    4300006: pasted__pSphere6
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: pSphere5
     9500000: //RootNode
   materials:
     importMaterials: 1

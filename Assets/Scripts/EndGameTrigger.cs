@@ -13,7 +13,6 @@ public class EndGameTrigger : MonoBehaviour {
 	}
 	// Use this for initialization
 	void Update(){
-
 	}
 	
 	// Update is called once per frame
